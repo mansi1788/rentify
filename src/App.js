@@ -1,25 +1,48 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import SearchBar from './components/Searchbar';
+import Navbar from './components/Navbar'
+ import Loginpg from './components/Loginpg';
+import Hero from './components/Hero';
+import About from './components/About';
+ import Footer from './components/Footer';
+ import '@fortawesome/fontawesome-free/css/all.min.css';
+import {Routes,Route} from 'react-router-dom'
+import ClothesDetails from './components/ClothesDetails';
+import Clothes__List from './components/Clothes__List';
+import Favorites from './components/Favorites';
+
+
 
 function App() {
+  // const handleSearch = (query) => {
+  //   console.log('Search query:', query);
+  //   // Add your search logic here
+  // };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    // <div className="bg-black">
+    //   <
+    //   <SearchBar onSearch={handleSearch} />
+
+    //   <Navbar/>
+    //   <Hero/>
+    //  <About/>
+    //  <Footer/>
+    // </div>
+    <div className='App'>
+      <Navbar/>
+      <Routes>
+        <Route path='/' element={<Clothes__List/>} />
+        <Route path='/products/:id' element={<ClothesDetails/>} />
+        <Route path='/favorites' element={<Favorites/>} />
+
+      </Routes>
+      <Footer/>
+
     </div>
   );
 }
 
 export default App;
+
